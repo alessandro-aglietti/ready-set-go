@@ -52,11 +52,6 @@ func handlerHtmlTemplate(w http.ResponseWriter, r *http.Request) {
     }
 }
 
-func msgKey(c appengine.Context) *datastore.Key {
-        // Per garantire consistenza si crea una chiave "genitore" utilizzata da tutti i messaggi
-        return datastore.NewKey(c, "Messaggio", "msg_parent_key", 0, nil)
-}
-
 /*
 * NB: se il nome del campo non inizia per lettera maiuscola non è visibile all'esterno, ergo
 * - non sarà scritto sul database
