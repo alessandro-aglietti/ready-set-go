@@ -8,3 +8,6 @@ git clone https://github.com/alessandro-aglietti/ready-set-go
 chmod +x /home/action/workspace/go/ready-set-go/goapp-serve-nitrous
 cd /home/action/.parts/bin
 ln -s /home/action/workspace/go/ready-set-go/goapp-serve-nitrous
+cd /home/action
+echo "export PATH=$PATH:/home/action/go_appengine" >> /home/action/.bash_profile
+source /home/action/.bash_profile
