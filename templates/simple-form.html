@@ -1,0 +1,11 @@
+<h1>Compila il form seguente per inserire nuovi messaggi!</h1>
+<div>
+   <form action="/simple-form" method="POST">
+     <input type="text" name="messaggio" placeholder="inserisci qui il tuo messaggio" />
+     <input type="submit" value="Invia il messaggio" />
+  </form>
+</div>
+<h2>Di seguito i messaggi salvati</h2>
+{{ range . }}
+<p><b>{{ .DataRFC822 }}</b>: {{ .Testo }}</p>
+{{ end }}
