@@ -1,4 +1,4 @@
-# ready-set-go
+# Ready, set Go!
 Repository for the Golang event in Florence high school http://www.isisdavinci.gov.it/
 
 Slides
