@@ -15,6 +15,7 @@ https://docs.google.com/presentation/d/1oeemQu5CbuPuZzneRSzZdbCY1b1V8lBeH2EplQCE
 
 Introduzione a Google Classroom
 
+https://drive.google.com/file/d/0B9vhVI44DUKKTVpfcENNajhzZGM/view
 
 Introuduzione a Go
 
