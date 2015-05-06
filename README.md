@@ -1,6 +1,14 @@
 # Ready, set Go!
 Repository for the Golang event in Florence high school http://www.isisdavinci.gov.it/
 
+Google+ event
+
+https://plus.google.com/u/0/events/c1hlaboalv0931ug501erl9ta0c
+
+YouTube live stream
+
+https://www.youtube.com/watch?v=QZ4bDP2Ed1I
+
 Cosa è il Google Developer Group di Firenze
 
 https://docs.google.com/presentation/d/1oeemQu5CbuPuZzneRSzZdbCY1b1V8lBeH2EplQCE2ng/edit
