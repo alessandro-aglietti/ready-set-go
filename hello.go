@@ -9,6 +9,7 @@ import (
     "time"
     "appengine"
     "appengine/datastore"
+    "appengine/user"
 )
 
 func init() {
@@ -18,7 +19,7 @@ func init() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Fprint(w, "Hello, world!")
+    fmt.Fprint(w, "Hello, mondo!")
 }
 
 /*
@@ -40,8 +41,8 @@ func handlerHtmlTemplate(w http.ResponseWriter, r *http.Request) {
     }
     
     // creo la struttura dati composta da un titolo fisso ed un valore casuale
-    valoreCasuale := rand.Intn(3000);
-    data := BasicModel{"Sotto un valore casuale da 0 a 3000", strconv.Itoa(valoreCasuale)}
+    valoreCasuale := rand.Intn(300000000);
+    data := BasicModel{"Sotto un valore casuale da 0 a 300000000", strconv.Itoa(valoreCasuale)}
   
     // unisco struttura dati e template html
     err = tmpl.Execute(w, data)
@@ -59,6 +60,7 @@ func handlerHtmlTemplate(w http.ResponseWriter, r *http.Request) {
 */
 type Messaggio struct {
         Testo string
+        Autore string
         Data time.Time
 }
 func (msg *Messaggio) DataRFC822() string {
@@ -99,11 +101,26 @@ func handlerSimpleForm(w http.ResponseWriter, r *http.Request) {
     }
   } else if ( r.Method == "POST" ) {
     c.Infof("handlerSimpleForm con metodo POST")
+    
+    // inizio auth    
+    u := user.Current(c)
+    if u == nil {
+        url, err := user.LoginURL(c, r.URL.String())
+        if err != nil {
+            http.Error(w, err.Error(), http.StatusInternalServerError)
+            return
+        }
+        w.Header().Set("Location", url)
+        w.WriteHeader(http.StatusFound)
+        return
+    }    
+    // fine auth
+    
     // modalità salvataggio dati
     messaggio := r.FormValue("messaggio")
     if messaggio != "" {
       // se il messaggio non è vuoto lo posso salvare!
-      msg := Messaggio{ Testo: messaggio, Data: time.Now() }
+      msg := Messaggio{ Testo: messaggio, Autore: u.Email, Data: time.Now() }
       
       // genero una nuova chiave incompleta che sarà completata durante l'inserimento
       key := datastore.NewIncompleteKey(c, "Messaggio", nil)
