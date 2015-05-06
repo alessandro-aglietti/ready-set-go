@@ -13,6 +13,9 @@ Cosa è il Google Developer Group di Firenze
 
 https://docs.google.com/presentation/d/1oeemQu5CbuPuZzneRSzZdbCY1b1V8lBeH2EplQCE2ng/edit
 
+Introduzione a Google Classroom
+
+
 Introuduzione a Go
 
 https://www.powtoon.com/show/fiBoTd8NhQc/go-lang/#/
